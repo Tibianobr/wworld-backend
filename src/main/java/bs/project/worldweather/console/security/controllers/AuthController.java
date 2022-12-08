@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.controllers;
+package bs.project.worldweather.console.security.controllers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -7,15 +7,15 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import bs.project.worldweather.console.models.ERole;
-import bs.project.worldweather.console.models.Role;
-import bs.project.worldweather.console.models.User;
-import bs.project.worldweather.console.dto.request.LoginRequest;
-import bs.project.worldweather.console.dto.request.SignupRequest;
-import bs.project.worldweather.console.dto.response.JwtResponse;
-import bs.project.worldweather.console.dto.response.MessageResponse;
-import bs.project.worldweather.console.repository.RoleRepository;
-import bs.project.worldweather.console.repository.UserRepository;
+import bs.project.worldweather.console.security.models.ERole;
+import bs.project.worldweather.console.security.models.Role;
+import bs.project.worldweather.console.security.models.User;
+import bs.project.worldweather.console.security.dto.request.LoginRequest;
+import bs.project.worldweather.console.security.dto.request.SignupRequest;
+import bs.project.worldweather.console.security.dto.response.JwtResponse;
+import bs.project.worldweather.console.security.dto.response.MessageResponse;
+import bs.project.worldweather.console.security.repository.RoleRepository;
+import bs.project.worldweather.console.security.repository.UserRepository;
 import bs.project.worldweather.console.security.jwt.JwtUtils;
 import bs.project.worldweather.console.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;

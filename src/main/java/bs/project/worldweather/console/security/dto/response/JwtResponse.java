@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.dto.response;
+package bs.project.worldweather.console.security.dto.response;
 
 import java.util.List;
 

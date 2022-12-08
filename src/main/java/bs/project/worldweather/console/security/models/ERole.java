@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.models;
+package bs.project.worldweather.console.security.models;
 
 public enum ERole {
   ROLE_USER,

@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.models;
+package bs.project.worldweather.console.security.models;
 
 import java.util.HashSet;
 import java.util.Set;

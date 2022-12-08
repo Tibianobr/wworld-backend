@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import bs.project.worldweather.console.models.User;
-import bs.project.worldweather.console.repository.UserRepository;
+import bs.project.worldweather.console.security.models.User;
+import bs.project.worldweather.console.security.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

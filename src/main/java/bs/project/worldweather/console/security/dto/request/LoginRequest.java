@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.dto.request;
+package bs.project.worldweather.console.security.dto.request;
 
 import javax.validation.constraints.NotBlank;
 

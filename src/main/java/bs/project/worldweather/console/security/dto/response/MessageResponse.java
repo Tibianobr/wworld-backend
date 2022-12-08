@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.dto.response;
+package bs.project.worldweather.console.security.dto.response;
 
 public class MessageResponse {
 	private String message;
