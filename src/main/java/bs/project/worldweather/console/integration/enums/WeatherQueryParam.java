@@ -1,4 +1,4 @@
-package bs.project.worldweather.console.integration.dto;
+package bs.project.worldweather.console.integration.enums;
 
 public enum WeatherQueryParam {
     API_KEY("appid"),

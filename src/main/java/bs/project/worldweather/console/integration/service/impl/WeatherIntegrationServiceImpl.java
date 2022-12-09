@@ -2,7 +2,9 @@ package bs.project.worldweather.console.integration.service.impl;
 
 import bs.project.worldweather.console.core.models.Coords;
 import bs.project.worldweather.console.integration.dto.WeatherCityDTO;
-import bs.project.worldweather.console.integration.dto.WeatherQueryParam;
+import bs.project.worldweather.console.integration.dto.WeatherCurrentInfoDTO;
+import bs.project.worldweather.console.integration.dto.WeatherForecastDTO;
+import bs.project.worldweather.console.integration.enums.WeatherQueryParam;
 import bs.project.worldweather.console.integration.service.WeatherIntegrationService;
 import bs.project.worldweather.console.integration.utils.WebClientUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,9 @@ public class WeatherIntegrationServiceImpl implements WeatherIntegrationService 
     Juntar as duas APIs acima e gerar um retorno único
      */
     @Override
-    public void currentWeatherRequest(Coords coords){
+    public WeatherCurrentInfoDTO currentWeatherRequest(Coords coords){
         WebClient webClient = webClientUtils.webClientWeatherData();
-        String a = webClient.get()
+        return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("weather")
                         .queryParam(WeatherQueryParam.LATITUDE.getParam(), coords.getLat())
@@ -38,23 +40,23 @@ public class WeatherIntegrationServiceImpl implements WeatherIntegrationService 
                         .queryParam(WeatherQueryParam.API_KEY.getParam(), apiKey)
                         .build())
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(WeatherCurrentInfoDTO.class)
                 .block();
     }
 
     @Override
-    public void hourlyForecastRequest(Coords coords){
-        WebClient webClient = webClientUtils.webClientWeatherGeo();
-        String a = webClient.get()
+    public WeatherForecastDTO hourlyForecastRequest(Coords coords){
+        WebClient webClient = webClientUtils.webClientWeatherData();
+        return webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("direct")
+                        .path("forecast")
                         .queryParam(WeatherQueryParam.LATITUDE.getParam(), coords.getLat())
                         .queryParam(WeatherQueryParam.LONGITUDE.getParam(), coords.getLon())
                         .queryParam(WeatherQueryParam.API_KEY.getParam(), apiKey)
                         .queryParam(WeatherQueryParam.COUNT.getParam(),"5")
                         .build())
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(WeatherForecastDTO.class)
                 .block();
     }
 
