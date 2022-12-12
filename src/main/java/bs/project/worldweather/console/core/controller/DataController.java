@@ -1,5 +1,6 @@
 package bs.project.worldweather.console.core.controller;
 
+import bs.project.worldweather.console.core.dto.response.DataWeatherResponseDTO;
 import bs.project.worldweather.console.core.models.Coords;
 import bs.project.worldweather.console.core.services.DataService;
 import org.springframework.http.HttpStatus;
@@ -21,9 +22,8 @@ public class DataController {
 
 
     @PostMapping("/")
-    public ResponseEntity<?> fetchWeatherData(@RequestBody Coords coords){
-        dataService.fetchWeatherData(coords);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<DataWeatherResponseDTO> fetchWeatherData(@RequestBody Coords coords){
+        return new ResponseEntity<>(dataService.fetchWeatherData(coords) , HttpStatus.OK);
     }
 
 }
